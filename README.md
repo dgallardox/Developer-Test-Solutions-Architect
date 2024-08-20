@@ -1,7 +1,7 @@
 # Developer-Test-Solutions-Architect
 
 ## Summary
-A large business is transitioning from a traditional CMS on adobe experience manager to Headless WordPress on WP Engine. Their priorities are seamless delivery across multiple device types, performance, security, and compliance.
+A large business is transitioning from a traditional CMS on Adobe Experience Manager to Headless WordPress on WP Engine. Their priorities are seamless delivery across multiple device types, performance, security, and compliance.
 
 ## Suggestions
 ### performance
@@ -12,3 +12,4 @@ A large business is transitioning from a traditional CMS on adobe experience man
 - 
 
 ## Atlas Architecture Diagram
+![Atlas_Architecture (2)](https://github.com/user-attachments/assets/edea4861-23a9-4c19-bda0-4cdcd7ea9ea1)
