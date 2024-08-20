@@ -11,6 +11,7 @@ import {
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import * as MENUS from "../constants/menus";
 import Image from "next/image";
+import Link from "next/link";
 
 const GET_POSTS = gql`
   ${BlogInfoFragment}
@@ -81,6 +82,9 @@ export default function Posts() {
                   className='text-gray-700'
                   dangerouslySetInnerHTML={{ __html: post.excerpt }}
                 />
+                <div className='text-black py-3 px-6 w-[60%] text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'>
+                  <Link href={post.uri}>Read more</Link>
+                </div>
               </div>
             ))}
           </div>

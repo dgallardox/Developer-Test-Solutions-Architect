@@ -83,26 +83,29 @@ export default function Items() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {data.items.nodes.map((item) => (
               <>
-                <Link href={item.uri}>
+                <div
+                  key={item.uri}
+                  className='border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer'
+                >
+                  <h2 className='text-xl font-semibold mb-2'>{item.title}</h2>
+                  <Image
+                    src={item.itemFields.image.node.sourceUrl}
+                    height={250}
+                    width={300}
+                  />
+                  <div>${item.itemFields.cost}</div>
                   <div
-                    key={item.uri}
-                    className='border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer'
-                  >
-                    <h2 className='text-xl font-semibold mb-2'>{item.title}</h2>
-                    <Image
-                      src={item.itemFields.image.node.sourceUrl}
-                      height={250}
-                      width={300}
-                    />
-                    <div>${item.itemFields.cost}</div>
-                    <div
-                      className='text-gray-700'
-                      dangerouslySetInnerHTML={{
-                        __html: item.itemFields.description,
-                      }}
-                    />
+                    className='text-gray-700'
+                    dangerouslySetInnerHTML={{
+                      __html: item.itemFields.description,
+                    }}
+                  />
+                  <div className='text-black py-3 px-6 w-[60%] text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'>
+                    <Link href={item.uri}>
+                      Learn more
+                    </Link> 
                   </div>
-                </Link>
+                </div>
               </>
             ))}
           </div>

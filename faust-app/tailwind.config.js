@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./wp-templates/*", "./pages/posts.js"],
+  content: ["./wp-templates/*", "./pages/*"],
   theme: {
     extend: {},
   },
