@@ -3,11 +3,13 @@ import tag from './tag';
 import frontPage from './front-page';
 import page from './page';
 import single from './single';
+import item from "./item"
 
 export default {
   category,
   tag,
   'front-page': frontPage,
   page,
+  'single-item': item,
   single,
 };

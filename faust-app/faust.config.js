@@ -10,4 +10,6 @@ export default setConfig({
   plugins: [],
   experimentalToolbar: true,
   possibleTypes,
+  useGETForQueries: true,
+  usePersistedQueries: true
 });
