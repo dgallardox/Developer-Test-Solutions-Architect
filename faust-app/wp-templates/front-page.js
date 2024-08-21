@@ -67,7 +67,6 @@ const GET_PAGE_DATA_AND_CTA = gql`
 `;
 
 export default function Component() {
-
   const { data, loading, error } = useQuery(GET_PAGE_DATA_AND_CTA, {
     variables: Component.variables(),
   });
@@ -99,13 +98,21 @@ export default function Component() {
               width={1000}
               priority={true}
               className='object-cover w-full h-auto'
+              alt={CTA?.text || "Call to action image"}
             />
-            <div className='absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40 p-8'>
+            <div
+              className='absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40 p-8'
+              aria-label='Call to action overlay'
+            >
               <div className='text-white text-4xl font-bold mb-6'>
                 {CTA?.text}
               </div>
 
-              <div className='bg-blue-600 text-white py-3 px-6 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'>
+              <div
+                className='bg-blue-600 text-white py-3 px-6 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'
+                role='button'
+                aria-label={`Call to action: ${CTA?.link.title}`}
+              >
                 <Link href={CTA?.link.url}>{CTA?.link.title}</Link>
               </div>
             </div>
@@ -114,26 +121,38 @@ export default function Component() {
           <div className='my-[10px] font-semibold text-xl'>Featured Items:</div>
           <div className='flex flex-wrap justify-between'>
             {items.map((item) => {
-              const { uri, title } = item
+              const { uri, title } = item;
               const { featured } = item.itemFields;
               const { cost, description } = item.itemFields;
               const { sourceUrl: imageUrl } = item.itemFields.image.node;
+
               if (!!featured) {
                 return (
                   <div
                     key={uri}
                     className='w-full sm:w-[100%] md:w-[30%] border rounded-lg p-[20px] mb-[20px] shadow-md hover:shadow-lg cursor-pointer'
+                    aria-label={`Featured item: ${title}`}
                   >
                     <div className='font-semibold mb-[5px]'>{title}</div>
-                    <Image src={imageUrl} height={250} width={300} />
+                    <Image
+                      src={imageUrl}
+                      height={250}
+                      width={300}
+                      alt={`Image of ${title}`}
+                    />
                     <div>cost: ${cost}</div>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: description,
                       }}
+                      aria-label={`Description of ${title}`}
                     />
                     <Link href={uri}>
-                      <div className='text-black py-3 px-6 w-[60%] rounded-lg shadow-md hover:bg-[#cbd5e1] transition-colors'>
+                      <div
+                        className='text-black py-3 px-6 w-[60%] rounded-lg shadow-md hover:bg-[#cbd5e1] transition-colors'
+                        role='button'
+                        aria-label={`Learn more about ${title}`}
+                      >
                         Learn more
                       </div>
                     </Link>
@@ -150,6 +169,7 @@ export default function Component() {
     </>
   );
 }
+
 
 Component.variables = () => {
   return {
