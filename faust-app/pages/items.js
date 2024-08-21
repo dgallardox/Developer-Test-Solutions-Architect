@@ -100,11 +100,11 @@ export default function Items() {
                       __html: item.itemFields.description,
                     }}
                   />
-                  <div className='text-black py-3 px-6 w-[60%] text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'>
-                    <Link href={item.uri}>
+                  <Link href={item.uri}>
+                    <div className='text-black py-3 px-6 w-[60%] rounded-lg shadow-md hover:bg-[#cbd5e1] transition-colors'>
                       Learn more
-                    </Link> 
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </>
             ))}

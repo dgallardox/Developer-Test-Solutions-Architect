@@ -82,9 +82,11 @@ export default function Posts() {
                   className='text-gray-700'
                   dangerouslySetInnerHTML={{ __html: post.excerpt }}
                 />
-                <div className='text-black py-3 px-6 w-[60%] text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors'>
-                  <Link href={post.uri}>Read more</Link>
-                </div>
+                <Link href={post.uri}>
+                  <div className='text-black py-3 px-6 w-[60%] rounded-lg shadow-md hover:bg-[#cbd5e1] transition-colors'>
+                    Read more
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

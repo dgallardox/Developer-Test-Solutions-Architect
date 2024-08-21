@@ -18,6 +18,7 @@ export default function Component(props) {
   const { sourceUrl } = props.data.nodeByUri.itemFields.image.node
   const { title: siteTitle, description: siteDescription } =
     props.data?.generalSettings;
+  
   const primaryMenu = props.__TEMPLATE_QUERY_DATA__.headerMenuItems.nodes ?? [];
   const footerMenu = props.__TEMPLATE_QUERY_DATA__.footerMenuItems.nodes ?? [];
 
@@ -38,7 +39,6 @@ return (
             <span className='block font-semibold text-lg'>{title}</span>
             <span className='block text-gray-700'>Cost: ${cost}</span>
             <div dangerouslySetInnerHTML={{ __html: description }} />
-            <button>Learn more</button>
           </div>
         </div>
       </Container>
