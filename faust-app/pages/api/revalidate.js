@@ -17,7 +17,7 @@ export default async function handler(
   }
 
   try {
-      await purgePaths(path);
+      await purgePaths([path]);
       await res.revalidate(path);
       return res.json({ revalidated: true });
   
