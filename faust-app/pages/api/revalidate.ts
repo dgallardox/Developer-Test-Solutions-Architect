@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { purgePaths } from "@wpengine/edge-cache";
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,6 +19,7 @@ export default async function handler(
 
   try {
     if (typeof path === "string") {
+      await purgePaths(path);
       await res.revalidate(path);
       return res.json({ revalidated: true });
     }
