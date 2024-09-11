@@ -20,7 +20,7 @@ export default function Header({
           <div className={cx('navbar')}>
             <div className={cx('brand')}>
               <Link href="/">
-                <a className={cx('title')}>{title}</a>
+                <div className={cx('title')}>{title}</div>
               </Link>
               {description && <p className={cx('description')}>{description}</p>}
             </div>

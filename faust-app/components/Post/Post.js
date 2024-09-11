@@ -15,20 +15,18 @@ export default function Post({
     <article className={styles.component}>
       {featuredImage && (
         <Link href={uri}>
-          <a>
+
             <FeaturedImage
               image={featuredImage}
               layout="responsive"
               className={styles.featuredImage}
             />
-          </a>
+
         </Link>
       )}
 
       <Link href={uri}>
-        <a>
           <h2>{title}</h2>
-        </a>
       </Link>
       <PostInfo date={date} author={author} className={styles.postInfo} />
       <div
